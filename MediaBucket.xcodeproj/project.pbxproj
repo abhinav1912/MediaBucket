@@ -13,9 +13,13 @@
 		A8B7F61728A4B2660046F415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61528A4B2660046F415 /* Main.storyboard */; };
 		A8B7F61928A4B2660046F415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61828A4B2660046F415 /* Assets.xcassets */; };
 		A8B7F61C28A4B2660046F415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61A28A4B2660046F415 /* LaunchScreen.storyboard */; };
+		CD5E3C248ADF35EC58420158 /* Pods_MediaBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518FCE146F8E37B1B3B407BC /* Pods_MediaBucket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F24F84254D37FF1DC37FDE0 /* Pods-MediaBucket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaBucket.release.xcconfig"; path = "Target Support Files/Pods-MediaBucket/Pods-MediaBucket.release.xcconfig"; sourceTree = "<group>"; };
+		518FCE146F8E37B1B3B407BC /* Pods_MediaBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediaBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67FDA24618AEC259CC840C30 /* Pods-MediaBucket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaBucket.debug.xcconfig"; path = "Target Support Files/Pods-MediaBucket/Pods-MediaBucket.debug.xcconfig"; sourceTree = "<group>"; };
 		A8B7F60C28A4B2660046F415 /* MediaBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B7F60F28A4B2660046F415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B7F61128A4B2660046F415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5E3C248ADF35EC58420158 /* Pods_MediaBucket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34AB6959046F506E2F7022C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67FDA24618AEC259CC840C30 /* Pods-MediaBucket.debug.xcconfig */,
+				0F24F84254D37FF1DC37FDE0 /* Pods-MediaBucket.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4CA253AB479F4B14784DAFA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				518FCE146F8E37B1B3B407BC /* Pods_MediaBucket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8B7F60328A4B2660046F415 = {
 			isa = PBXGroup;
 			children = (
 				A8B7F60E28A4B2660046F415 /* MediaBucket */,
 				A8B7F60D28A4B2660046F415 /* Products */,
+				34AB6959046F506E2F7022C4 /* Pods */,
+				4CA253AB479F4B14784DAFA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8B7F62028A4B2660046F415 /* Build configuration list for PBXNativeTarget "MediaBucket" */;
 			buildPhases = (
+				1FF0228C15636C7077B2DA69 /* [CP] Check Pods Manifest.lock */,
 				A8B7F60828A4B2660046F415 /* Sources */,
 				A8B7F60928A4B2660046F415 /* Frameworks */,
 				A8B7F60A28A4B2660046F415 /* Resources */,
@@ -132,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FF0228C15636C7077B2DA69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MediaBucket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A8B7F60828A4B2660046F415 /* Sources */ = {
@@ -282,6 +333,7 @@
 		};
 		A8B7F62128A4B2660046F415 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FDA24618AEC259CC840C30 /* Pods-MediaBucket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +362,7 @@
 		};
 		A8B7F62228A4B2660046F415 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F24F84254D37FF1DC37FDE0 /* Pods-MediaBucket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
