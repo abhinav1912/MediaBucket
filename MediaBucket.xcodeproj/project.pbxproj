@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A81222EC28A6111700B097E6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81222EB28A6111700B097E6 /* Coordinator.swift */; };
 		A81222EF28A6126A00B097E6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81222EE28A6126A00B097E6 /* HomeCoordinator.swift */; };
+		A81222F128A6159C00B097E6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81222F028A6159C00B097E6 /* AppCoordinator.swift */; };
+		A81222F328A625D700B097E6 /* AppCoordinatorComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81222F228A625D700B097E6 /* AppCoordinatorComposer.swift */; };
 		A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F60F28A4B2660046F415 /* AppDelegate.swift */; };
 		A8B7F61428A4B2660046F415 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F61328A4B2660046F415 /* ViewController.swift */; };
 		A8B7F61928A4B2660046F415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61828A4B2660046F415 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		67FDA24618AEC259CC840C30 /* Pods-MediaBucket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaBucket.debug.xcconfig"; path = "Target Support Files/Pods-MediaBucket/Pods-MediaBucket.debug.xcconfig"; sourceTree = "<group>"; };
 		A81222EB28A6111700B097E6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A81222EE28A6126A00B097E6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		A81222F028A6159C00B097E6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A81222F228A625D700B097E6 /* AppCoordinatorComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorComposer.swift; sourceTree = "<group>"; };
 		A8B7F60C28A4B2660046F415 /* MediaBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B7F60F28A4B2660046F415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B7F61328A4B2660046F415 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				A8B7F61A28A4B2660046F415 /* LaunchScreen.storyboard */,
 				A8B7F61D28A4B2660046F415 /* Info.plist */,
 				A81222EB28A6111700B097E6 /* Coordinator.swift */,
+				A81222F028A6159C00B097E6 /* AppCoordinator.swift */,
+				A81222F228A625D700B097E6 /* AppCoordinatorComposer.swift */,
 			);
 			path = MediaBucket;
 			sourceTree = "<group>";
@@ -197,7 +203,9 @@
 			files = (
 				A8B7F61428A4B2660046F415 /* ViewController.swift in Sources */,
 				A81222EF28A6126A00B097E6 /* HomeCoordinator.swift in Sources */,
+				A81222F328A625D700B097E6 /* AppCoordinatorComposer.swift in Sources */,
 				A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */,
+				A81222F128A6159C00B097E6 /* AppCoordinator.swift in Sources */,
 				A81222EC28A6111700B097E6 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
