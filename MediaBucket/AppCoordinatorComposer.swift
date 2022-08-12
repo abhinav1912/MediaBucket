@@ -11,7 +11,7 @@ import UIKit
 final class AppCoordinatorComposer {
     static func getInstance(for window: UIWindow) -> Coordinator {
         let rootViewController = UINavigationController()
-        let homeCoordinator = HomeCoordinator(navigationController: rootViewController, viewController: ViewController())
+        let homeCoordinator = HomeCoordinatorComposer.getInstance(for: rootViewController)
         let appCoordinator = AppCoordinator(window: window, rootViewController: rootViewController, homeCoordinator: homeCoordinator)
         return appCoordinator
     }

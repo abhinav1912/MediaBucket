@@ -21,3 +21,10 @@ final class HomeCoordinator: Coordinator {
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }
+
+final class HomeCoordinatorComposer {
+    static func getInstance(for navigationController: UINavigationController) -> Coordinator {
+        let viewController = ViewController()
+        return HomeCoordinator(navigationController: navigationController, viewController: viewController)
+    }
+}
