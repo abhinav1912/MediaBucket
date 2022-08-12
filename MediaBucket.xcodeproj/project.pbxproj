@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A81222EC28A6111700B097E6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81222EB28A6111700B097E6 /* Coordinator.swift */; };
+		A81222EF28A6126A00B097E6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81222EE28A6126A00B097E6 /* HomeCoordinator.swift */; };
 		A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F60F28A4B2660046F415 /* AppDelegate.swift */; };
 		A8B7F61428A4B2660046F415 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F61328A4B2660046F415 /* ViewController.swift */; };
 		A8B7F61928A4B2660046F415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61828A4B2660046F415 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		518FCE146F8E37B1B3B407BC /* Pods_MediaBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediaBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FDA24618AEC259CC840C30 /* Pods-MediaBucket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaBucket.debug.xcconfig"; path = "Target Support Files/Pods-MediaBucket/Pods-MediaBucket.debug.xcconfig"; sourceTree = "<group>"; };
 		A81222EB28A6111700B097E6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A81222EE28A6126A00B097E6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		A8B7F60C28A4B2660046F415 /* MediaBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B7F60F28A4B2660046F415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B7F61328A4B2660046F415 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A81222ED28A6125100B097E6 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A81222EE28A6126A00B097E6 /* HomeCoordinator.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		A8B7F60328A4B2660046F415 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		A8B7F60E28A4B2660046F415 /* MediaBucket */ = {
 			isa = PBXGroup;
 			children = (
+				A81222ED28A6125100B097E6 /* HomeView */,
 				A8B7F60F28A4B2660046F415 /* AppDelegate.swift */,
 				A8B7F61328A4B2660046F415 /* ViewController.swift */,
 				A8B7F61828A4B2660046F415 /* Assets.xcassets */,
@@ -185,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B7F61428A4B2660046F415 /* ViewController.swift in Sources */,
+				A81222EF28A6126A00B097E6 /* HomeCoordinator.swift in Sources */,
 				A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */,
 				A81222EC28A6111700B097E6 /* Coordinator.swift in Sources */,
 			);
