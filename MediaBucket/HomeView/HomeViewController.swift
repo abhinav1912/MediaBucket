@@ -8,14 +8,20 @@
 import UIKit
 
 final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    private enum Constants {
+        static let cellIdentifier = "homeCollectionViewCell"
+    }
     private var collectionView: UICollectionView
+    private let viewModel: HomeViewModel
     
-    init() {
+    init(viewModel: HomeViewModel) {
         let layout = UICollectionViewLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
     }
     
     required init?(coder: NSCoder) {
@@ -37,11 +43,15 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfItemsIn(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? HomeCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let itemViewModel = self.viewModel.itemAtIndexPath(indexPath)
+        cell.configureFor(viewModel: itemViewModel)
+        return cell
     }
 }
-
