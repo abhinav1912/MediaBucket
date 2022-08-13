@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private enum Constants {
         static let cellIdentifier = "homeCollectionViewCell"
     }
@@ -15,8 +15,12 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     private let viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 8
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .vertical
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.collectionView.dataSource = self
@@ -31,6 +35,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(self.collectionView)
+        self.collectionView.backgroundColor = .white
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         let layoutGuide = self.view.safeAreaLayoutGuide
         let constraints = [
@@ -53,5 +58,12 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         let itemViewModel = self.viewModel.itemAtIndexPath(indexPath)
         cell.configureFor(viewModel: itemViewModel)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(
+            width: collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right),
+            height: 64
+        )
     }
 }

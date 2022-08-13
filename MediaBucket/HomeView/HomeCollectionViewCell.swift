@@ -33,9 +33,11 @@ final class HomeCollectionViewCell: UICollectionViewCell {
             self.titleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
+        self.backgroundColor = .red
     }
     
     func configureFor(viewModel: HomeViewItem) {
         self.titleLabel.text = viewModel.title
+        self.titleLabel.textColor = .black
     }
 }

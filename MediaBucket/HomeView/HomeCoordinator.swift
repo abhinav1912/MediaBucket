@@ -24,7 +24,8 @@ final class HomeCoordinator: Coordinator {
 
 final class HomeCoordinatorComposer {
     static func getInstance(for navigationController: UINavigationController) -> Coordinator {
-        let viewController = HomeViewController()
+        let viewModel = HomeViewModel()
+        let viewController = HomeViewController(viewModel: viewModel)
         return HomeCoordinator(navigationController: navigationController, viewController: viewController)
     }
 }
