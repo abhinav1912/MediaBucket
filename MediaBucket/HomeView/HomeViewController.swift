@@ -7,13 +7,15 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     private var collectionView: UICollectionView
     
     init() {
         let layout = UICollectionViewLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(nibName: nil, bundle: nil)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -32,6 +34,14 @@ final class HomeViewController: UIViewController {
             self.collectionView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
     }
 }
 
