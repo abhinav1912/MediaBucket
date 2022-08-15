@@ -18,6 +18,7 @@
 		A8B7F61428A4B2660046F415 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F61328A4B2660046F415 /* HomeViewController.swift */; };
 		A8B7F61928A4B2660046F415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61828A4B2660046F415 /* Assets.xcassets */; };
 		A8B7F61C28A4B2660046F415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61A28A4B2660046F415 /* LaunchScreen.storyboard */; };
+		A8F7E9E528AA8FD300A0AAEB /* ListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F7E9E428AA8FD300A0AAEB /* ListViewCoordinator.swift */; };
 		CD5E3C248ADF35EC58420158 /* Pods_MediaBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518FCE146F8E37B1B3B407BC /* Pods_MediaBucket.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		A8B7F61828A4B2660046F415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8B7F61B28A4B2660046F415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8B7F61D28A4B2660046F415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8F7E9E428AA8FD300A0AAEB /* ListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A81222ED28A6125100B097E6 /* HomeView */,
+				A8F7E9E328AA8F5200A0AAEB /* ListView */,
 				A8B7F60F28A4B2660046F415 /* AppDelegate.swift */,
 				A8B7F61828A4B2660046F415 /* Assets.xcassets */,
 				A8B7F61A28A4B2660046F415 /* LaunchScreen.storyboard */,
@@ -112,6 +115,14 @@
 				A81222F228A625D700B097E6 /* AppCoordinatorComposer.swift */,
 			);
 			path = MediaBucket;
+			sourceTree = "<group>";
+		};
+		A8F7E9E328AA8F5200A0AAEB /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				A8F7E9E428AA8FD300A0AAEB /* ListViewCoordinator.swift */,
+			);
+			path = ListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 				A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */,
 				A82FB60728A797F0009DC666 /* HomeCollectionViewCell.swift in Sources */,
 				A889491A28A6DF35007BFD6B /* HomeViewItem.swift in Sources */,
+				A8F7E9E528AA8FD300A0AAEB /* ListViewCoordinator.swift in Sources */,
 				A81222F128A6159C00B097E6 /* AppCoordinator.swift in Sources */,
 				A81222EC28A6111700B097E6 /* Coordinator.swift in Sources */,
 			);
