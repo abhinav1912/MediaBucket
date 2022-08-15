@@ -27,17 +27,19 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(self.titleLabel)
         let constraints = [
-            self.titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            self.titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            self.titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             self.titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            self.titleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor)
+            self.titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ]
         NSLayoutConstraint.activate(constraints)
-        self.backgroundColor = .red
+        self.backgroundColor = .red.withAlphaComponent(0.5)
+        self.layer.cornerRadius = 8
     }
     
     func configureFor(viewModel: HomeViewItem) {
         self.titleLabel.text = viewModel.title
-        self.titleLabel.textColor = .black
+        self.titleLabel.textColor = .white
+        self.titleLabel.numberOfLines = .zero
+        self.titleLabel.font = self.titleLabel.font.withSize(24)
     }
 }

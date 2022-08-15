@@ -35,6 +35,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(self.collectionView)
+        self.view.backgroundColor = .white
         self.collectionView.backgroundColor = .white
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         let layoutGuide = self.view.safeAreaLayoutGuide
@@ -63,7 +64,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
             width: collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right),
-            height: 64
+            height: 128
         )
     }
 }
