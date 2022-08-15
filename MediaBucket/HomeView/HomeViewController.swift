@@ -11,21 +11,12 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     private enum Constants {
         static let cellIdentifier = "homeCollectionViewCell"
     }
-    private var collectionView: UICollectionView
+    private lazy var collectionView: UICollectionView = getCollectionView()
     private let viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .vertical
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        self.collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
     }
     
     required init?(coder: NSCoder) {
@@ -34,9 +25,21 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundImageView = UIImageView()
+        backgroundImageView.image = UIImage(named: "TemporaryBackground")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(backgroundImageView)
+        let backgroundViewConstraints = [
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
+        NSLayoutConstraint.activate(backgroundViewConstraints)
+
         view.addSubview(self.collectionView)
-        self.view.backgroundColor = .white
-        self.collectionView.backgroundColor = .white
+        self.collectionView.backgroundColor = .clear
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         let layoutGuide = self.view.safeAreaLayoutGuide
         let constraints = [
@@ -66,5 +69,19 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             width: collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right),
             height: 128
         )
+    }
+    
+    private func getCollectionView() -> UICollectionView {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 8
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .vertical
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+        return collectionView
     }
 }
