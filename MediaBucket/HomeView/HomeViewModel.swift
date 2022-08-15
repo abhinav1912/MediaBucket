@@ -10,7 +10,9 @@ import Foundation
 final class HomeViewModel {
     private var items: [HomeViewItem] = [
         HomeViewItem(title: "Music", image: nil, description: nil),
-        HomeViewItem(title: "Books", image: nil, description: nil)
+        HomeViewItem(title: "Videos", image: nil, description: nil),
+        HomeViewItem(title: "Books", image: nil, description: nil),
+        HomeViewItem(title: "News", image: nil, description: nil),
     ]
 
     func numberOfItemsIn(section: Int) -> Int {
