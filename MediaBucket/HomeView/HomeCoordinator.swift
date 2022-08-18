@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
-final class HomeCoordinator: Coordinator {
+final class HomeCoordinator: NSObject, Coordinator {
     var navigationController: UINavigationController
-    private var viewController: UIViewController
+    private var viewController: HomeViewController
     private var listViewCoordinator: ListViewCoordinator
     
-    init(navigationController: UINavigationController, viewController: UIViewController, listViewCoordinator: ListViewCoordinator) {
+    init(navigationController: UINavigationController, viewController: HomeViewController, listViewCoordinator: ListViewCoordinator) {
         self.navigationController = navigationController
         self.viewController = viewController
         self.listViewCoordinator = listViewCoordinator
+        super.init()
+        self.viewController.delegate = self
     }
 
     func start() {

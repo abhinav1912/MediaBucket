@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HomeViewControllerDelegate {
+protocol HomeViewControllerDelegate: NSObject {
     func didSelect(item: HomeViewItem)
 }
 
@@ -17,7 +17,8 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     }
     private lazy var collectionView: UICollectionView = getCollectionView()
     private let viewModel: HomeViewModel
-    
+    weak var delegate: HomeViewControllerDelegate?
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -73,6 +74,11 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             width: collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right),
             height: 128
         )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = self.viewModel.itemAtIndexPath(indexPath)
+        delegate?.didSelect(item: item)
     }
     
     private func getCollectionView() -> UICollectionView {
