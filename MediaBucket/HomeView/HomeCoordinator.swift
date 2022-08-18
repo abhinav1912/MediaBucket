@@ -11,10 +11,12 @@ import UIKit
 final class HomeCoordinator: Coordinator {
     var navigationController: UINavigationController
     private var viewController: UIViewController
+    private var listViewCoordinator: ListViewCoordinator
     
-    init(navigationController: UINavigationController, viewController: UIViewController) {
+    init(navigationController: UINavigationController, viewController: UIViewController, listViewCoordinator: ListViewCoordinator) {
         self.navigationController = navigationController
         self.viewController = viewController
+        self.listViewCoordinator = listViewCoordinator
     }
 
     func start() {
@@ -22,10 +24,17 @@ final class HomeCoordinator: Coordinator {
     }
 }
 
+extension HomeCoordinator: HomeViewControllerDelegate {
+    func didSelect(item: HomeViewItem) {
+        self.listViewCoordinator.start(with: item)
+    }
+}
+
 final class HomeCoordinatorComposer {
     static func getInstance(for navigationController: UINavigationController) -> Coordinator {
         let viewModel = HomeViewModel()
         let viewController = HomeViewController(viewModel: viewModel)
-        return HomeCoordinator(navigationController: navigationController, viewController: viewController)
+        let listViewCoordinator = ListViewCoordinatorImpl(navigationController: navigationController)
+        return HomeCoordinator(navigationController: navigationController, viewController: viewController, listViewCoordinator: listViewCoordinator)
     }
 }

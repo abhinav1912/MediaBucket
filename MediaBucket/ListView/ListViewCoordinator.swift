@@ -9,16 +9,14 @@ import Foundation
 import UIKit
 
 protocol ListViewCoordinator: Coordinator {
-    func start(with viewModel: HomeViewModel)
+    func start(with viewModel: HomeViewItem)
 }
 
 final class ListViewCoordinatorImpl: ListViewCoordinator {
     var navigationController: UINavigationController
-    private var viewController: UIViewController
     
-    init(navigationController: UINavigationController, viewController: UIViewController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.viewController = viewController
     }
 
     func start() {
@@ -26,7 +24,9 @@ final class ListViewCoordinatorImpl: ListViewCoordinator {
         self.navigationController.pushViewController(vc, animated: true)
     }
     
-    func start(with viewModel: HomeViewModel) {
+    func start(with viewModel: HomeViewItem) {
         // TODO: Implementation
+        let vc = ListViewController()
+        self.navigationController.pushViewController(vc, animated: true)
     }
 }

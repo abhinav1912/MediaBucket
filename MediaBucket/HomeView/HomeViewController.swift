@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate {
+    func didSelect(item: HomeViewItem)
+}
+
 final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private enum Constants {
         static let cellIdentifier = "homeCollectionViewCell"
