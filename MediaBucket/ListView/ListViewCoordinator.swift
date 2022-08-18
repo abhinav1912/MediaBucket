@@ -22,7 +22,8 @@ final class ListViewCoordinatorImpl: ListViewCoordinator {
     }
 
     func start() {
-        self.navigationController.pushViewController(viewController, animated: true)
+        let vc = ListViewController()
+        self.navigationController.pushViewController(vc, animated: true)
     }
     
     func start(with viewModel: HomeViewModel) {
