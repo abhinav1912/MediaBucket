@@ -19,6 +19,8 @@
 		A8B7F61428A4B2660046F415 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F61328A4B2660046F415 /* HomeViewController.swift */; };
 		A8B7F61928A4B2660046F415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61828A4B2660046F415 /* Assets.xcassets */; };
 		A8B7F61C28A4B2660046F415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B7F61A28A4B2660046F415 /* LaunchScreen.storyboard */; };
+		A8DE1D8F28B025D600501804 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE1D8E28B025D600501804 /* ListViewModel.swift */; };
+		A8DE1D9128B025FC00501804 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE1D9028B025FC00501804 /* ListItem.swift */; };
 		A8F7E9E528AA8FD300A0AAEB /* ListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F7E9E428AA8FD300A0AAEB /* ListViewCoordinator.swift */; };
 		CD5E3C248ADF35EC58420158 /* Pods_MediaBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518FCE146F8E37B1B3B407BC /* Pods_MediaBucket.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		A8B7F61828A4B2660046F415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8B7F61B28A4B2660046F415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8B7F61D28A4B2660046F415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8DE1D8E28B025D600501804 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A8DE1D9028B025FC00501804 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		A8F7E9E428AA8FD300A0AAEB /* ListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +128,8 @@
 			children = (
 				A8F7E9E428AA8FD300A0AAEB /* ListViewCoordinator.swift */,
 				A87AD43028AE92C500D652C8 /* ListViewController.swift */,
+				A8DE1D8E28B025D600501804 /* ListViewModel.swift */,
+				A8DE1D9028B025FC00501804 /* ListItem.swift */,
 			);
 			path = ListView;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 			files = (
 				A8B7F61428A4B2660046F415 /* HomeViewController.swift in Sources */,
 				A81222EF28A6126A00B097E6 /* HomeCoordinator.swift in Sources */,
+				A8DE1D8F28B025D600501804 /* ListViewModel.swift in Sources */,
 				A81222F328A625D700B097E6 /* AppCoordinatorComposer.swift in Sources */,
 				A82FB60528A75EE0009DC666 /* HomeViewModel.swift in Sources */,
 				A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */,
@@ -233,6 +240,7 @@
 				A82FB60728A797F0009DC666 /* HomeCollectionViewCell.swift in Sources */,
 				A889491A28A6DF35007BFD6B /* HomeViewItem.swift in Sources */,
 				A8F7E9E528AA8FD300A0AAEB /* ListViewCoordinator.swift in Sources */,
+				A8DE1D9128B025FC00501804 /* ListItem.swift in Sources */,
 				A81222F128A6159C00B097E6 /* AppCoordinator.swift in Sources */,
 				A81222EC28A6111700B097E6 /* Coordinator.swift in Sources */,
 			);
