@@ -19,14 +19,11 @@ final class ListViewCoordinatorImpl: ListViewCoordinator {
         self.navigationController = navigationController
     }
 
-    func start() {
-        let vc = ListViewController()
-        self.navigationController.pushViewController(vc, animated: true)
-    }
+    func start() { }
     
-    func start(with viewModel: HomeViewItem) {
-        // TODO: Implementation
-        let vc = ListViewController()
+    func start(with item: HomeViewItem) {
+        let viewModel = ListViewModelImpl()
+        let vc = ListViewController(item: item, viewModel: viewModel)
         self.navigationController.pushViewController(vc, animated: true)
     }
 }

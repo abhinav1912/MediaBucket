@@ -10,6 +10,19 @@ import UIKit
 
 final class ListViewController: UIViewController {
     let tableView = UITableView()
+    let item: HomeViewItem
+    let viewModel: ListViewModel
+    
+    init(item: HomeViewItem, viewModel: ListViewModel) {
+        self.item = item
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.title = item.title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +35,5 @@ final class ListViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(constraints)
         tableView.backgroundColor = .red
-        self.title = "Test"
     }
 }
