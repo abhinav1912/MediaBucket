@@ -10,5 +10,5 @@ import Foundation
 struct ListItem {
     let title: String
     let description: String?
-    let link: URL
+    let link: URL?
 }
