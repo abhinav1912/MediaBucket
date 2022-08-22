@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class ListViewController: UIViewController {
-    let tableView = UITableView()
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
     let item: HomeViewItem
     let viewModel: ListViewModel
     
@@ -18,6 +18,9 @@ final class ListViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.title = item.title
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "listViewControllerCell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -34,6 +37,28 @@ final class ListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ]
         NSLayoutConstraint.activate(constraints)
-        tableView.backgroundColor = .red
+        
+    }
+}
+
+extension ListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getData().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let itemViewModel = self.viewModel.getData()[indexPath.row]
+        let cell: UITableViewCell
+        if itemViewModel.description != nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "listViewControllerCell")
+        } else {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "listViewControllerCell")
+        }
+        var config = cell.defaultContentConfiguration()
+        config.text = itemViewModel.title
+        config.secondaryText = itemViewModel.description
+        cell.accessoryType = .none
+        cell.contentConfiguration = config
+        return cell
     }
 }
