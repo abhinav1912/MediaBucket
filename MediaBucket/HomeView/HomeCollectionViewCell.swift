@@ -24,6 +24,21 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        blurEffectView.layer.cornerRadius = 8
+        blurEffectView.clipsToBounds = true
+        contentView.addSubview(blurEffectView)
+        
+        let blurViewConstraints  = [
+            blurEffectView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            blurEffectView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            blurEffectView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            blurEffectView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ]
+        NSLayoutConstraint.activate(blurViewConstraints)
+        
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(self.titleLabel)
         let constraints = [
@@ -32,7 +47,6 @@ final class HomeCollectionViewCell: UICollectionViewCell {
             self.titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ]
         NSLayoutConstraint.activate(constraints)
-        self.backgroundColor = .red.withAlphaComponent(0.5)
         self.layer.cornerRadius = 8
     }
     
