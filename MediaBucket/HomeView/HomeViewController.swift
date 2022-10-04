@@ -11,11 +11,29 @@ protocol HomeViewControllerDelegate: NSObject {
     func didSelect(item: HomeViewItem)
 }
 
-final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+final class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfItemsIn(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? HomeTableViewCell else {
+            return UITableViewCell()
+        }
+        let itemViewModel = self.viewModel.itemAtIndexPath(indexPath)
+        cell.configureFor(viewModel: itemViewModel)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.viewModel.itemAtIndexPath(indexPath)
+        delegate?.didSelect(item: item)
+    }
+    
     private enum Constants {
         static let cellIdentifier = "homeCollectionViewCell"
     }
-    private lazy var collectionView: UICollectionView = getCollectionView()
+    private lazy var collectionView: UITableView = getTableView()
     private let viewModel: HomeViewModel
     weak var delegate: HomeViewControllerDelegate?
 
@@ -56,42 +74,16 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         NSLayoutConstraint.activate(constraints)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfItemsIn(section: section)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? HomeCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        let itemViewModel = self.viewModel.itemAtIndexPath(indexPath)
-        cell.configureFor(viewModel: itemViewModel)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(
-            width: collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right),
-            height: 128
-        )
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = self.viewModel.itemAtIndexPath(indexPath)
-        delegate?.didSelect(item: item)
-    }
-    
-    private func getCollectionView() -> UICollectionView {
+    private func getTableView() -> UITableView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
-        return collectionView
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        return tableView
     }
 }
