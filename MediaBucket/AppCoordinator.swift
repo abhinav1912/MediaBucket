@@ -17,6 +17,7 @@ final class AppCoordinator: Coordinator {
         self.window = window
         self.homeCoordinator = homeCoordinator
         self.rootViewController = rootViewController
+        rootViewController.navigationBar.prefersLargeTitles = true
     }
     
     func start() {
