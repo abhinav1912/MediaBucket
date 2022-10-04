@@ -53,7 +53,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundImageView = UIImageView()
-        backgroundImageView.image = UIImage(named: "TemporaryBackground")
+        backgroundImageView.image = UIImage(named: "")
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backgroundImageView)
@@ -76,6 +76,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
             self.collectionView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
+        self.view.backgroundColor = .systemGray6
     }
     
     private func getTableView() -> UITableView {
@@ -84,7 +85,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
         
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
