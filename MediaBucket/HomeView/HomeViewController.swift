@@ -81,6 +81,14 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         delegate?.didSelect(item: item)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.viewModel.numberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.getTitleFor(section)
+    }
+    
     // MARK: Private Methods
     
     private func getTableView() -> UITableView {
