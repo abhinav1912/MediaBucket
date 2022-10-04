@@ -12,6 +12,12 @@ protocol HomeViewControllerDelegate: NSObject {
 }
 
 final class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private enum Constants {
+        static let title = "Folders"
+        static let cellIdentifier = "homeCollectionViewCell"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItemsIn(section: section)
     }
@@ -30,9 +36,6 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         delegate?.didSelect(item: item)
     }
     
-    private enum Constants {
-        static let cellIdentifier = "homeCollectionViewCell"
-    }
     private lazy var collectionView: UITableView = getTableView()
     private let viewModel: HomeViewModel
     weak var delegate: HomeViewControllerDelegate?
@@ -40,6 +43,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.title = Constants.title
     }
     
     required init?(coder: NSCoder) {
