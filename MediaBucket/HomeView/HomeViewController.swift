@@ -18,24 +18,6 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         static let cellIdentifier = "homeCollectionViewCell"
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItemsIn(section: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? HomeTableViewCell else {
-            return UITableViewCell()
-        }
-        let itemViewModel = self.viewModel.itemAtIndexPath(indexPath)
-        cell.configureFor(viewModel: itemViewModel)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = self.viewModel.itemAtIndexPath(indexPath)
-        delegate?.didSelect(item: item)
-    }
-    
     private lazy var collectionView: UITableView = getTableView()
     private let viewModel: HomeViewModel
     weak var delegate: HomeViewControllerDelegate?
@@ -78,6 +60,28 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         NSLayoutConstraint.activate(constraints)
         self.view.backgroundColor = .systemGray6
     }
+    
+    // MARK: TableView Methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfItemsIn(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? HomeTableViewCell else {
+            return UITableViewCell()
+        }
+        let itemViewModel = self.viewModel.itemAtIndexPath(indexPath)
+        cell.configureFor(viewModel: itemViewModel)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.viewModel.itemAtIndexPath(indexPath)
+        delegate?.didSelect(item: item)
+    }
+    
+    // MARK: Private Methods
     
     private func getTableView() -> UITableView {
         let layout = UICollectionViewFlowLayout()
