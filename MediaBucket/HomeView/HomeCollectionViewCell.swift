@@ -25,6 +25,7 @@ final class HomeTableViewCell: UITableViewCell {
         cellConfig.text = viewModel.title
         cellConfig.secondaryText = viewModel.description
         cellConfig.image = viewModel.image
+        self.accessoryType = .disclosureIndicator
         self.contentConfiguration = cellConfig
     }
 }
