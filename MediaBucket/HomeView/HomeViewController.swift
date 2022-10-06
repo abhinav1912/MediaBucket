@@ -59,6 +59,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         ]
         NSLayoutConstraint.activate(constraints)
         self.view.backgroundColor = .systemGray6
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
     }
     
     // MARK: TableView Methods
@@ -102,5 +103,9 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         return tableView
+    }
+    
+    @objc private func addButtonTapped() {
+        // TODO: Handle tap
     }
 }
