@@ -59,7 +59,12 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         ]
         NSLayoutConstraint.activate(constraints)
         self.view.backgroundColor = .systemGray6
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let rightButtonMenu = self.getAddButtonMenu()
+        rightButton.menu = rightButtonMenu
+        rightButton.primaryAction = nil
+        self.navigationItem.rightBarButtonItem = rightButton
     }
     
     // MARK: TableView Methods
@@ -105,7 +110,16 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         return tableView
     }
     
-    @objc private func addButtonTapped() {
-        // TODO: Handle tap
+    @objc private func getAddButtonMenu() -> UIMenu {
+        let addNoteAction : UIAction = .init(title: "New Note", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
+                // TODO: Complete action
+        })
+        let addFolderAction : UIAction = .init(title: "New Folder", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
+            // TODO: Complete action
+        })
+
+        let actions = [addNoteAction, addFolderAction]
+        let menu = UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: actions)
+        return menu
     }
 }
