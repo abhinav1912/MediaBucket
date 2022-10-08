@@ -11,14 +11,15 @@ final class HomeViewModel {
     
     private var sections: [HomeViewSection] = [
         HomeViewSection(title: nil, folders: [
-            HomeViewItem(title: "Recent items", image: nil, description: nil)
+            HomeViewItem(title: "All items", image: nil, description: nil)
         ]),
         HomeViewSection(title: "iCloud", folders: [
             HomeViewItem(title: "Music", image: nil, description: nil),
             HomeViewItem(title: "Videos", image: nil, description: nil),
             HomeViewItem(title: "Books", image: nil, description: nil),
             HomeViewItem(title: "News", image: nil, description: nil)
-        ])
+        ]),
+        HomeViewSection(title: "Recent items", folders: [])
     ]
     
     func numberOfSections() -> Int {
