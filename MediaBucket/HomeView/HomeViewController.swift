@@ -94,6 +94,13 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.getTitleFor(section)
     }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel?.text = viewModel.getTitleFor(section)
+            view.textLabel?.font = view.textLabel?.font.withSize(16)
+        }
+    }
     
     // MARK: Private Methods
     
