@@ -14,6 +14,7 @@
 		A82FB60528A75EE0009DC666 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FB60428A75EE0009DC666 /* HomeViewModel.swift */; };
 		A82FB60728A797F0009DC666 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FB60628A797F0009DC666 /* HomeCollectionViewCell.swift */; };
 		A878789D28EC362400D24CCF /* HomeViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878789C28EC362400D24CCF /* HomeViewSection.swift */; };
+		A87878A228F4693700D24CCF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87878A128F4693700D24CCF /* Errors.swift */; };
 		A87AD43128AE92C500D652C8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AD43028AE92C500D652C8 /* ListViewController.swift */; };
 		A889491A28A6DF35007BFD6B /* HomeViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889491928A6DF35007BFD6B /* HomeViewItem.swift */; };
 		A8B7F61028A4B2660046F415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B7F60F28A4B2660046F415 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		A82FB60428A75EE0009DC666 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A82FB60628A797F0009DC666 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A878789C28EC362400D24CCF /* HomeViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSection.swift; sourceTree = "<group>"; };
+		A87878A128F4693700D24CCF /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A87AD43028AE92C500D652C8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A889491928A6DF35007BFD6B /* HomeViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewItem.swift; sourceTree = "<group>"; };
 		A8B7F60C28A4B2660046F415 /* MediaBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 				A81222EB28A6111700B097E6 /* Coordinator.swift */,
 				A81222F028A6159C00B097E6 /* AppCoordinator.swift */,
 				A81222F228A625D700B097E6 /* AppCoordinatorComposer.swift */,
+				A87878A128F4693700D24CCF /* Errors.swift */,
 			);
 			path = MediaBucket;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				A81222EF28A6126A00B097E6 /* HomeCoordinator.swift in Sources */,
 				A8C4CABA28BE6A6A00962238 /* CollectionDataModel.xcdatamodeld in Sources */,
 				A878789D28EC362400D24CCF /* HomeViewSection.swift in Sources */,
+				A87878A228F4693700D24CCF /* Errors.swift in Sources */,
 				A8DE1D8F28B025D600501804 /* ListViewModel.swift in Sources */,
 				A81222F328A625D700B097E6 /* AppCoordinatorComposer.swift in Sources */,
 				A82FB60528A75EE0009DC666 /* HomeViewModel.swift in Sources */,
