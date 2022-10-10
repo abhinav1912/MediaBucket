@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Errors {
+enum AppError {
     case invalidFolderName
     case folderNameExists
 
