@@ -143,12 +143,21 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         }
 
         let actions: [UIAlertAction] = [
-            UIAlertAction(title: "Add", style: .default, handler: {_ in }),
+            UIAlertAction(title: "Add", style: .default, handler: {_ in
+                if let folderName = alert.textFields?.first?.text {
+                    let description = alert.textFields?[1].text ?? ""
+                    self.addFolderButtonTapped(with: folderName, description: description)
+                }
+            }),
             UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in })
         ]
         for action in actions {
             alert.addAction(action)
         }
         self.present(alert, animated: true)
+    }
+
+    private func addFolderButtonTapped(with name: String, description: String) {
+        // TODO: Check name validity
     }
 }
