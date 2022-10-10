@@ -132,10 +132,16 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
 
     private func presentAlertToAddFolder() {
         let alert = UIAlertController(title: "Add Folder", message: "Enter a name for the folder", preferredStyle: .alert)
+
         alert.addTextField() { textField in
             textField.placeholder = "Folder name"
             textField.keyboardType = .default
         }
+        alert.addTextField() { textField in
+            textField.placeholder = "Description (optional)"
+            textField.keyboardType = .default
+        }
+
         let actions: [UIAlertAction] = [
             UIAlertAction(title: "Add", style: .default, handler: {_ in }),
             UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in })
