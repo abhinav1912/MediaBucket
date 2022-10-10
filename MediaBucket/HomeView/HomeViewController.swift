@@ -144,7 +144,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
 
         let actions: [UIAlertAction] = [
             UIAlertAction(title: "Add", style: .default, handler: {_ in
-                if let folderName = alert.textFields?.first?.text {
+                if let folderName = alert.textFields?[0].text {
                     let description = alert.textFields?[1].text ?? ""
                     self.addFolderButtonTapped(with: folderName, description: description)
                 }
@@ -158,12 +158,21 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     private func addFolderButtonTapped(with name: String, description: String) {
-        // TODO: Check name validity
+        if !folderNameIsValid(name) {
+            self.presentErrorAlert(for: .invalidFolderName)
+        }
+        if !viewModel.folderNameIsAvailable(name) {
+            self.presentErrorAlert(for: .folderNameExists)
+        }
+        // TODO: Implement save
     }
 
     private func presentErrorAlert(for error: AppError) {
         let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in }))
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+            self.presentAlertToAddFolder()
+        }))
+        self.present(alert, animated: false)
     }
 
     private func folderNameIsValid(_ name: String) -> Bool {

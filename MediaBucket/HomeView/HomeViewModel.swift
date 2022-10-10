@@ -43,10 +43,10 @@ final class HomeViewModel {
         for section in self.sections {
             for folder in section.folders {
                 if folder.title == name {
-                    return true
+                    return false
                 }
             }
         }
-        return false
+        return true
     }
 }
