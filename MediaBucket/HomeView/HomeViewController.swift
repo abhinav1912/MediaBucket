@@ -18,7 +18,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         static let cellIdentifier = "homeCollectionViewCell"
     }
     
-    private lazy var collectionView: UITableView = getTableView()
+    private lazy var tableView: UITableView = getTableView()
     private let viewModel: HomeViewModel
     weak var delegate: HomeViewControllerDelegate?
 
@@ -30,6 +30,11 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -47,15 +52,15 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         ]
         NSLayoutConstraint.activate(backgroundViewConstraints)
 
-        view.addSubview(self.collectionView)
-        self.collectionView.backgroundColor = .clear
-        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(self.tableView)
+        self.tableView.backgroundColor = .clear
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         let layoutGuide = self.view.safeAreaLayoutGuide
         let constraints = [
-            self.collectionView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
-            self.collectionView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor),
-            self.collectionView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor),
-            self.collectionView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor)
+            self.tableView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor),
+            self.tableView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
         self.view.backgroundColor = .systemGray6
@@ -145,7 +150,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         let actions: [UIAlertAction] = [
             UIAlertAction(title: "Add", style: .default, handler: {_ in
                 if let folderName = alert.textFields?[0].text {
-                    let description = alert.textFields?[1].text ?? ""
+                    let description = alert.textFields?[1].text
                     self.addFolderButtonTapped(with: folderName, description: description)
                 }
             }),
@@ -157,14 +162,15 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         self.present(alert, animated: true)
     }
 
-    private func addFolderButtonTapped(with name: String, description: String) {
+    private func addFolderButtonTapped(with name: String, description: String?) {
         if !folderNameIsValid(name) {
             self.presentErrorAlert(for: .invalidFolderName)
         }
         if !viewModel.folderNameIsAvailable(name) {
             self.presentErrorAlert(for: .folderNameExists)
         }
-        // TODO: Implement save
+        let newItem = viewModel.createFolder(withName: name, description: description)
+        delegate?.didSelect(item: newItem)
     }
 
     private func presentErrorAlert(for error: AppError) {

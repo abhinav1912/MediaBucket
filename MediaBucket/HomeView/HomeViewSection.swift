@@ -9,5 +9,5 @@ import Foundation
 
 struct HomeViewSection {
     let title: String?
-    let folders: [HomeViewItem]
+    var folders: [HomeViewItem]
 }

@@ -49,4 +49,11 @@ final class HomeViewModel {
         }
         return true
     }
+
+    func createFolder(withName name: String, description: String?) -> HomeViewItem {
+        // TODO: Correct this temporary logic
+        let folder = HomeViewItem(title: name, image: nil, description: description)
+        self.sections[1].folders.append(folder)
+        return folder
+    }
 }
