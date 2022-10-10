@@ -160,4 +160,9 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     private func addFolderButtonTapped(with name: String, description: String) {
         // TODO: Check name validity
     }
+
+    private func presentErrorAlert(for error: AppError) {
+        let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in }))
+    }
 }
