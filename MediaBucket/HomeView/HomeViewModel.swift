@@ -37,4 +37,16 @@ final class HomeViewModel {
     func itemAtIndexPath(_ indexPath: IndexPath) -> HomeViewItem {
         return sections[indexPath.section].folders[indexPath.row]
     }
+
+    func folderNameIsAvailable(_ name: String) -> Bool {
+        // TODO: Optimise this check
+        for section in self.sections {
+            for folder in section.folders {
+                if folder.title == name {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }
