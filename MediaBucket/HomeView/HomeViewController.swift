@@ -165,4 +165,9 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in }))
     }
+
+    private func folderNameIsValid(_ name: String) -> Bool {
+        // TODO: Complete validity check
+        return true
+    }
 }
