@@ -122,11 +122,27 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
                 // TODO: Complete action
         })
         let addFolderAction : UIAction = .init(title: "New Folder", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
-            // TODO: Complete action
+            self.presentAlertToAddFolder()
         })
 
         let actions = [addNoteAction, addFolderAction]
         let menu = UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: actions)
         return menu
+    }
+
+    private func presentAlertToAddFolder() {
+        let alert = UIAlertController(title: "Add Folder", message: "Enter a name for the folder", preferredStyle: .alert)
+        alert.addTextField() { textField in
+            textField.placeholder = "Folder name"
+            textField.keyboardType = .default
+        }
+        let actions: [UIAlertAction] = [
+            UIAlertAction(title: "Add", style: .default, handler: {_ in }),
+            UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in })
+        ]
+        for action in actions {
+            alert.addAction(action)
+        }
+        self.present(alert, animated: true)
     }
 }
