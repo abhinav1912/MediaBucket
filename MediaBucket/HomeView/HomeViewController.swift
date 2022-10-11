@@ -16,6 +16,8 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     private enum Constants {
         static let title = "Folders"
         static let cellIdentifier = "homeCollectionViewCell"
+        static let newNoteText = "New Note"
+        static let newFolderText = "New Folder"
     }
     
     private lazy var tableView: UITableView = getTableView()
@@ -123,10 +125,10 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @objc private func getAddButtonMenu() -> UIMenu {
-        let addNoteAction : UIAction = .init(title: "New Note", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
+        let addNoteAction : UIAction = .init(title: Constants.newNoteText, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
                 // TODO: Complete action
         })
-        let addFolderAction : UIAction = .init(title: "New Folder", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
+        let addFolderAction : UIAction = .init(title: Constants.newFolderText, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .mixed, handler: { (action) in
             self.presentAlertToAddFolder()
         })
 
