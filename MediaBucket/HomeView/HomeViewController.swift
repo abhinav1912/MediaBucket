@@ -18,6 +18,13 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
         static let cellIdentifier = "homeCollectionViewCell"
         static let newNoteText = "New Note"
         static let newFolderText = "New Folder"
+        static let addFolderText = "Add Folder"
+        static let nameForFolderText = "Enter a name for the folder"
+        static let folderNameText = "Folder name"
+        static let descriptionText = "Description (optional)"
+        static let addText = "Add"
+        static let cancelText = "Cancel"
+        static let okayText = "Okay"
     }
     
     private lazy var tableView: UITableView = getTableView()
@@ -138,25 +145,25 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     private func presentAlertToAddFolder() {
-        let alert = UIAlertController(title: "Add Folder", message: "Enter a name for the folder", preferredStyle: .alert)
+        let alert = UIAlertController(title: Constants.addFolderText, message: Constants.nameForFolderText, preferredStyle: .alert)
 
         alert.addTextField() { textField in
-            textField.placeholder = "Folder name"
+            textField.placeholder = Constants.addFolderText
             textField.keyboardType = .default
         }
         alert.addTextField() { textField in
-            textField.placeholder = "Description (optional)"
+            textField.placeholder = Constants.descriptionText
             textField.keyboardType = .default
         }
 
         let actions: [UIAlertAction] = [
-            UIAlertAction(title: "Add", style: .default, handler: {_ in
+            UIAlertAction(title: Constants.addText, style: .default, handler: {_ in
                 if let folderName = alert.textFields?[0].text {
                     let description = alert.textFields?[1].text
                     self.addFolderButtonTapped(with: folderName, description: description)
                 }
             }),
-            UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in })
+            UIAlertAction(title: Constants.cancelText, style: .cancel, handler: {_ in })
         ]
         for action in actions {
             alert.addAction(action)
@@ -177,7 +184,7 @@ final class HomeViewController: UIViewController, UITableViewDataSource, UITable
 
     private func presentErrorAlert(for error: AppError) {
         let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+        alert.addAction(UIAlertAction(title: Constants.okayText, style: .default, handler: {_ in
             self.presentAlertToAddFolder()
         }))
         self.present(alert, animated: false)
